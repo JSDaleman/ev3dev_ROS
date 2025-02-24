@@ -1,0 +1,19 @@
+<launch>
+
+    <param name="/robot_id" value="1" />
+
+    <!-- Lanzar el nodo de control -->
+    <include file="$(find controls)/launch/controls_simulation.launch"/>
+
+    <!-- Lanzar el nodo de plugin rqt -->
+    <include file="$(find gui)/launch/rqt_plugin.launch"/>
+    <!-- Si se desea usar como app y no plugin -->
+    <!-- include file="$(find gui)/launch/gui.launch"/-->
+
+    <!-- Lanzar el nodo de mensajeria mqtt -->
+    <include file="$(find mqtt)/launch/mqtt.launch"/>
+
+    <!-- Lanzar el nodo de simulacion del robot -->
+    <include file="$(find ugv_description)/launch/ev3_diff_robot.launch"/>
+
+</launch>

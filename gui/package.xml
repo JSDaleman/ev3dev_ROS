@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>gui</name>
+  <version>0.0.1</version>
+  <description>The gui package</description>
+
+  <maintainer email="jdaleman@unal.edu.co">JSDaleman</maintainer>
+  <author email="jdaleman@unal.edu.co">JSDaleman</author> 
+  <license>MIT</license>
+  <url type="website">https://github.com/JSDaleman/ev3dev_ROS</url>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>rqt_gui</exec_depend>
+  <exec_depend>rqt_gui_py</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <export>
+    <build_type>catkin</build_type>
+    <rqt_gui plugin="${prefix}/resource/rqt_control_gui_plugin.xml"/>
+  </export>
+</package>

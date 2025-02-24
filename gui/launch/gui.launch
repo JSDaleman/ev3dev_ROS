@@ -1,0 +1,8 @@
+<launch>
+    <!-- Configurar un parámetro global -->
+    <!--param name="/robot_id" value="1" /-->
+
+    <!-- Iniciar un nodo -->
+    <node name="gui_node" pkg="gui" type="app.py" output="screen"/>
+
+</launch>

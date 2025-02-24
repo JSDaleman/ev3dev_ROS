@@ -1,0 +1,62 @@
+{
+  "keys": {},
+  "groups": {
+    "mainwindow": {
+      "keys": {
+        "geometry": {
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'01d9d0cb000300000000004a0000005f000002ed00000281000000700000009a000002c70000025b00000000000000000780000000700000009a000002c70000025b')",
+          "type": "repr(QByteArray.hex)",
+          "pretty-print": "     J _     p     [      p     ["
+        },
+        "state": {
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'000000ff00000000fd00000001000000030000025800000198fc0100000001fb00000086006700750069005f005f0043006f006e00740072006f006c00200044006900660066006500720065006e007400690061006c00200052006f0062006f007400200050006c007500670069006e005f005f0031005f005f0043006f006e00740072006f006c0044006900660066006500720065006e007400690061006c0052006f0062006f00740100000000000002580000013e00ffffff000002580000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
+          "type": "repr(QByteArray.hex)",
+          "pretty-print": "                  gui__Control Differential Robot Plugin__1__ControlDifferentialRobot                            6MinimizedDockWidgetsToolbar        "
+        }
+      },
+      "groups": {
+        "toolbar_areas": {
+          "keys": {
+            "MinimizedDockWidgetsToolbar": {
+              "repr": "8",
+              "type": "repr"
+            }
+          },
+          "groups": {}
+        }
+      }
+    },
+    "pluginmanager": {
+      "keys": {
+        "running-plugins": {
+          "repr": "{'gui/Control Differential Robot Plugin': [1]}",
+          "type": "repr"
+        }
+      },
+      "groups": {
+        "plugin__gui__Control Differential Robot Plugin__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__ControlDifferentialRobot": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "''",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

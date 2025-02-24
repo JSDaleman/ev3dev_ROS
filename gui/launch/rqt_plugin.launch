@@ -1,0 +1,7 @@
+<launch>
+    <!--param name="/robot_id" value="1" /-->
+
+    <!-- Ejecuta RQt y carga la perspectiva guardada -->
+    <node pkg="rqt_gui" type="rqt_gui" name="rqt" output="screen"
+          args="--perspective-file  $(find gui)/resource/gui_diff_control.perspective"/>
+</launch>

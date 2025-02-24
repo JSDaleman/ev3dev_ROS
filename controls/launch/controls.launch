@@ -1,0 +1,8 @@
+<launch>
+    <!--param name="/robot_id" value="1" /-->
+    <!-- Iniciar nodos-->
+    <node name="controller_node" pkg="controls" type="controller.py" output="screen"/>
+    <node name="forward_kinematics_node" pkg="controls" type="forward_kinematic.py" output="screen"/>
+    <node name="inverse_kinematics_node" pkg="controls" type="Inverse_kinematic.py" output="screen"/>
+
+</launch>

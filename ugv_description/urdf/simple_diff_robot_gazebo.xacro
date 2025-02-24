@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot name="diff_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Formatear robot_name con dos dígitos si es menor a 10 -->
+  <xacro:property name="robot_id" value="1"/>
+  <xacro:property name="robot_id_num" value="${int(robot_id)}"/>
+  <xacro:property name="robot_name" value="LegoEV3${'%02d' % robot_id_num}"/>
+
+  <material name="light_gray"> <!-- Custom color (for RViz) -->
+    <color rgba="${209/255} ${209/255} ${209/255} 1.0"/>
+  </material>
+
+  <gazebo reference="base_link">
+    <!-- material>Gazebo/SkyBlue</material--> <!-- Color of the base link in Gazebo -->
+    <!--material name="light_gray"/-->
+  </gazebo>
+
+  <gazebo reference="wheel_left_link"> <!-- Physical properties setup -->
+    <mu1>1.0</mu1>
+    <mu2>0.8</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <!--material>Gazebo/Black</material-->
+  </gazebo>
+
+  <gazebo reference="wheel_right_link">
+    <mu1>1.0</mu1>
+    <mu2>0.8</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <!--material>Gazebo/Black</material-->
+  </gazebo>
+
+  <gazebo reference="caster_link">
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <!--material>Gazebo/White</material-->
+  </gazebo>
+
+
+  <gazebo>
+    <plugin name="diff_controller" filename="libgazebo_ros_diff_drive.so"> <!-- Plugin for a differential mobile robot -->
+      <commandTopic>${robot_name}/cmd_vel_kinematic</commandTopic>
+      <odometryTopic>${robot_name}/odom_simulate</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometrySource>world</odometrySource> <!-- world or encoder -->
+      <publishOdomTF>true</publishOdomTF> <!-- Publish the fixed frame called odom, default = true-->
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <publishWheelTF>true</publishWheelTF> <!-- default = false. To show the spining wheels attached to the robot. Thus, joint_state_publisher node must be omitted -->
+      <publishTf>true</publishTf> <!-- default = true-->
+      <publishWheelJointState>false</publishWheelJointState>
+      <legacyMode>false</legacyMode>
+      <updateRate>30</updateRate>
+      <leftJoint>wheel_left_joint</leftJoint>
+      <rightJoint>wheel_right_joint</rightJoint>
+      <wheelSeparation>0.120</wheelSeparation>
+      <wheelDiameter>0.056</wheelDiameter>
+      <wheelAcceleration>2</wheelAcceleration>
+      <wheelTorque>20</wheelTorque>
+      <rosDebugLevel>na</rosDebugLevel>
+    </plugin>
+  </gazebo>
+
+</robot>

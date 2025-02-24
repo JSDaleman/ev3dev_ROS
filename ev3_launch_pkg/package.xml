@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ev3_launch_pkg</name>
+  <version>0.0.1</version>
+  <description>The ev3_launch_pkg package</description>
+
+  <maintainer email="jdaleman@unal.edu.co">JSDaleman</maintainer>
+  <author email="jdaleman@unal.edu.co">JSDaleman</author> 
+  <license>MIT</license>
+  <url type="website">https://github.com/JSDaleman/ev3dev_ROS</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <!-- Dependencias de los paquetes que contienen los nodos a lanzar -->
+  <depend>controls</depend>
+  <depend>gui</depend>
+  <depend>mqtt</depend>
+  <depend>ugv_description</depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

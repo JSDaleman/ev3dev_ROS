@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot_name" default="Ev3_diff_robot"/>
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="Y" default="0"/>
+
+  <!-- Launch Gazebo with an empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">  <!-- Open Gazebo using the empty_world.launch -->
+    <arg name="world_name" value="$(find ugv_description)/worlds/empty.world"/>
+    <arg name="paused" value="true"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- param name="robot_id" value="1"/-->
+
+  <!-- Send the robot XML to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find ugv_description)/urdf/simple_diff_robot_urdf.xacro" />
+   
+  <!-- Push robot_description to factory and spawn robot in Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+   args="-param robot_description -urdf -x $(arg x) -y $(arg y) -z 0.025 -R 0.0 -P 0.0 -Y $(arg Y) -model $(arg robot_name)"
+     respawn="false" output="screen"/>
+  
+  <!-- Show in RViz -->
+  <!-- Convert joint states to TF transforms for RViz, position of the robot, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" >
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" value="" />
+  </node>
+
+  <!-- NOTE: The "joint_state_publisher" node is not required, due to the "libgazebo_ros_diff_drive.so" plugin allows to do that with the <publishWheelTF> tag -->
+  <!-- node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" respawn="false" output="screen"/-->
+  
+
+  <!-- Show in RViz -->
+  <!--node name="rviz" pkg="rviz" type="rviz"/-->
+  <node name="rviz" pkg="rviz" type="rviz" args=" -d $(find ugv_description)/rviz/diff_robot_config.rviz" />
+
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+    <!-- param name="/robot_id" value="1" /-->
+    <!-- Iniciar un nodo -->
+    <node name="mqtt_node" pkg="mqtt" type="mqtt_messenger.py" output="screen"/>
+</launch>

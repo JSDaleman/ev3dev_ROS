@@ -1,0 +1,22 @@
+<library path="${prefix}/src/gui">
+  <class name="Control Differential Robot Plugin"
+         type="gui.rqt_plugin.ControlDifferentialRobotPlugin"
+         base_class_type="rqt_gui_py::Plugin">
+    <description>
+      Interfaz gráfica para controlar EV3 con ROS y MQTT
+    </description>
+    <qtgui>
+      <!-- optional grouping...
+      <group>
+        <label>Group</label>
+      </group>
+      <group>
+        <label>Subgroup</label>
+      </group>
+      -->
+      <label>Control EV3 with MQTT messages</label>
+      <icon type="theme">system-help</icon>
+      <statustip>Great user interface to provide real value.</statustip>
+    </qtgui>
+  </class>
+</library>
