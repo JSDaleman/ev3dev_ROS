@@ -1,6 +1,6 @@
 <launch>
     <!--param name="/robot_id" value="1" /-->
 
-    <!-- Ejecuta RQt y carga la perspectiva guardada -->
+    <!-- Ejecuta RQt -->
     <node name="gui_rqt" pkg="gui" type="rqt_app.py" output="screen"/>
 </launch>
