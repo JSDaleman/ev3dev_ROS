@@ -1,12 +1,56 @@
 # 🤖 ev3dev_ROS
 Paquete de ROS para control y simulacion de robot ev3 con sistema ev3dev.
 
+
+<details>
+    <summary>📖 Tabla de Contenidos</summary>
+
+---
+- [🤖 ev3dev\_ROS](#-ev3dev_ros)
+  - [🗂️ Estructura de paquetes](#️-estructura-de-paquetes)
+  - [⚙️ Requerimientos](#️-requerimientos)
+  - [📚 Intalacion de bibliotecas,dependencias y paquetes necesarios](#-intalacion-de-bibliotecasdependencias-y-paquetes-necesarios)
+    - [📊 Pyqt](#-pyqt)
+    - [📡 paho](#-paho)
+    - [🔗 Dependencias plugin RQT](#-dependencias-plugin-rqt)
+    - [📦 Paquetes simulacion con gazebo](#-paquetes-simulacion-con-gazebo)
+  - [📝 Especificaciones de cada paquete](#-especificaciones-de-cada-paquete)
+    - [🎛️ controls](#️-controls)
+      - [🕹️ controls\_simulation.launch](#️-controls_simulationlaunch)
+      - [🎮 controls.launch](#-controlslaunch)
+      - [🎚️ controller.py](#️-controllerpy)
+      - [🎯 forward\_kinematic.py](#-forward_kinematicpy)
+      - [🔄 inverse\_kinematic.py](#-inverse_kinematicpy)
+    - [✈️ ev3\_launch\_pkg](#️-ev3_launch_pkg)
+      - [🎮🤖🏎️ ev3\_teleop\_simulate.launch](#️-ev3_teleop_simulatelaunch)
+      - [🎮🤖 ev3\_teleop.launch](#-ev3_teleoplaunch)
+    - [🎮 gui](#-gui)
+      - [🎨🧩🖥️🚀 gui\_rqt.launch](#️-gui_rqtlaunch)
+      - [🎨🖥️🚀 gui.launch](#️-guilaunch)
+      - [🎨🔌🖥️🚀 rqt\_plugin.launch](#️-rqt_pluginlaunch)
+      - [🎨🖥️🌄 gui\_diff\_control.perspective](#️-gui_diff_controlperspective)
+      - [🔧🎨🖥️🚀 rqt\_control\_gui\_pligin.xml](#️-rqt_control_gui_pliginxml)
+      - [📱app.py](#apppy)
+      - [🖥️🔌📱 rqt\_app.py](#️-rqt_apppy)
+    - [📨 mqtt](#-mqtt)
+      - [🗣️👂🏼delegate.py](#️delegatepy)
+      - [🌐📡✉️  mqtt\_remote\_method\_calls.py](#️--mqtt_remote_method_callspy)
+    - [🚗 ugv\_description](#-ugv_description)
+      - [🏗️⚖️ simple\_diff\_robot\_gazebo.xacro](#️️-simple_diff_robot_gazeboxacro)
+      - [🤖🩻⚙️ simple\_diff\_robot\_urdf.xacro](#️-simple_diff_robot_urdfxacro)
+    - [📌🎯 Ejemplos de funcionamiento](#-ejemplos-de-funcionamiento)
+      - [📡🎮🤖 Teleoperación del robot](#-teleoperación-del-robot)
+      - [🎮📊🤖 Teleoperación y simulación](#-teleoperación-y-simulación)
+      - [🧩🏙️🖥️ Aplicación y plugin de rqt](#️️-aplicación-y-plugin-de-rqt)
+    - [🚨🐞💥 Fallas conocidas](#-fallas-conocidas)
+</details>
+
 ## 🗂️ Estructura de paquetes
 Este paquete consta de 5 paquetes los cuales son:
 
 - 🎛️ **controls:** Este paquete tiene el nodo para hacer control del flujo de datos. Debem implementar controladores y elementos de control de los datos en este paquete.
 
-- ✈️ **ev3_launch_pak:** Este paquete es el que controla los archivos .launch generales con los cuales se lanzan los nodos de cada uno de los paquete y archivos .launch de cada uno simultaneamente.
+- ✈️ **ev3_launch_pkg:** Este paquete es el que controla los archivos .launch generales con los cuales se lanzan los nodos de cada uno de los paquete y archivos .launch de cada uno simultaneamente.
 
 - 🎮 **gui:** Este paquete tiene la interfaz grafica de controles para el usuario tanto como aplicacion idependiente como plugin para RQT.
 
@@ -23,7 +67,8 @@ Este paquete consta de 5 paquetes los cuales son:
 - RVIZ 1.14.25
 - Python 3.8.10
 
->💡 **Nota**: Con la versión completa de ROS vienen preinstalados Gazebo, RQT y RVIZ. En linux por defecto viene una version de python
+> [!NOTE]
+> Con la versión completa de ROS vienen preinstalados Gazebo, RQT y RVIZ. En linux por defecto viene una version de python
 
 ## 📚 Intalacion de bibliotecas,dependencias y paquetes necesarios
 
@@ -35,7 +80,8 @@ sudo apt install python3-pip
 pip --version
 ``` 
 
->💡 **Nota**: Si deseas saltarte la instalacion de bibliotecas una por una y asegurarte de tener las versiones con las cuales se creo este paquete puedes usar el comando ```pip3 install -r requirements.txt``` del paquete para instalar todas las bibliotecas.
+> [!TIP]
+> Si deseas saltarte la instalacion de bibliotecas una por una y asegurarte de tener las versiones con las cuales se creo este paquete puedes usar el comando ```pip3 install -r requirements.txt``` del paquete para instalar todas las bibliotecas.
 
 Para el correcto funcionamiento de todo el paquete se necesitan algunas bibliotecas como:
 
@@ -53,7 +99,7 @@ Esta biblioteca contine los elementos necesarios para crear la comunicación mqt
 pip install paho-mqtt
 ```
 
-### 🔗 Deppendencias plugin RQT
+### 🔗 Dependencias plugin RQT
 Nos aseguramos que esten instaladas las dependencias para que funcione el plugin creado en RQT.
 
 ```sh
@@ -162,7 +208,7 @@ Usando la cinematica inversa del robot permite encontrar el valor de la velocida
 </details>
 
 
-### ✈️ ev3_launch_pak
+### ✈️ ev3_launch_pkg
 
 <details>
     <summary>🚀 launch</summary>
@@ -330,4 +376,53 @@ En este archivo se define la configuración del robot, definición visual, de co
 <details>
     <summary>🌏🖼️🏙️ worlds</summary>
 Se tiene el archivo de configuración del mundo del robot como condiciones de iluminación de la escena, modelo del mundo, motor de fisica y propiedades de este. 
+</details>
+
+### 📌🎯 Ejemplos de funcionamiento
+
+
+
+#### 📡🎮🤖 Teleoperación del robot
+
+#### 🎮📊🤖 Teleoperación y simulación
+
+#### 🧩🏙️🖥️ Aplicación y plugin de rqt
+
+
+### 🚨🐞💥 Fallas conocidas
+
+<details>
+    <summary>🧰🛠️ Problema visualizacion RVIZ</summary>
+Si usas un ubuntu nativo o por maquina virtual rviz no deberia presentar problemas de visualización como si  lo hace el wls en windows. Esto se debe a que no se esta usando OpenGL para renderizar o tenga un conflicto con los drivers del computador. Para solucionar esto sigue los siguientes pasos:
+
+1. Verifica tener OpenGL habilitado en caso de no aparecer nada instala lo y reinicia la simulación.
+  ```sh
+  glxinfo | grep "OpenGL"
+  ```
+
+  ```sh
+  sudo apt update
+  sudo apt install mesa-utils
+  glxinfo | grep "OpenGL" #renderer string muestra la funte para renderizar debe aparecer tu tarjeta grafica
+  ```
+2.  Si aun presentas el problema puede ser una incompatibilidad de drivers dentro del wls para esto prueba forzando el renderizado por cpu.
+  ```
+  LIBGL_ALWAYS_SOFTWARE=1 rviz
+  ```
+3. Con eso se abrira una nueva escena en rviz usando el boton "add" agregando "TF" y ""RobotModel" y en fixed frame "odom".
+4. Si con el paso anterior se resolvio el problema recomiendo que guardes la configuracion en el ~/.bashrc o ~/.zshrc
+  ```sh
+  cd ~
+  nano ~/.bashrc #  ~/.zshrc en caso de que uses Zsh
+  ```
+  ```sh
+  #Al final del archivo guarda la configuracion
+  export LIBGL_ALWAYS_SOFTWARE=1
+  ```
+  ```sh
+  #Aplica los cambios
+  source ~/.bashrc  # O ~/.zshrc si usas Zsh
+  ```
+
+
 </details>
