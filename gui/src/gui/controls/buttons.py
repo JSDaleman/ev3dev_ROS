@@ -63,7 +63,7 @@ class DifferentialControlButtons(ControlButtons):
         self.angle_value_label.setText(str(angle))
     
     def send_angle_message(self):
-        self._send_command_message("Angle", "angle button")
+        self._send_command_message("angle", "angle button")
 
     def send_forward_message(self):
         self._send_movement_message(1, 1, "Forward button")
@@ -78,7 +78,7 @@ class DifferentialControlButtons(ControlButtons):
         self._send_movement_message(-1, -1, "Back button")
 
     def send_stop_message(self):
-        self._send_command_message("Stop", "Stop button")
+        self._send_command_message("stop", "Stop button")
 
         speed = self.convert_units.rpm_to_rad_per_sec(0)
 
@@ -101,7 +101,7 @@ class DifferentialControlButtons(ControlButtons):
         self._send_command_message("arm_down", "Down button")
 
     def send_quit_message(self):
-        self._send_command_message("Quit", "Quit button")
+        self._send_command_message("quit", "Quit button")
 
     def send_exit(self):
         self._send_command_message("shutdown", "Exit key")

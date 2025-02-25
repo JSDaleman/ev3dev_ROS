@@ -57,9 +57,9 @@ class DifferentialControlKeys(ControlKeys):
             Qt.Key_Left: self.control_key_left,
             Qt.Key_Right: self.control_key_right,
             Qt.Key_Down: self.control_key_down,
-            Qt.Key_A: lambda: self._send_command_message("Angle", "angle key"),
-            Qt.Key_Space: lambda: self._send_command_message("Stop", "Stop key"),
-            Qt.Key_Q: lambda: self._send_command_message("Quit", "Quit key"),
+            Qt.Key_A: lambda: self._send_command_message("angle", "angle key"),
+            Qt.Key_Space: lambda: self._send_command_message("stop", "Stop key"),
+            Qt.Key_Q: lambda: self._send_command_message("quit", "Quit key"),
             Qt.Key_E: self.control_key_e
         }
 

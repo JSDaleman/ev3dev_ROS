@@ -32,8 +32,8 @@ class PcROSDelegate(object):
         """Procesa mensajes de tipo 'print_message'."""
         rospy.loginfo(f"Message received: {message}")
 
-    def Angle(self, angle):
-        """Procesa mensajes de tipo 'Angle' y los publica."""
+    def angle(self, angle):
+        """Procesa mensajes de tipo 'angle' y los publica."""
         if self.gyro_publisher:
             self.gyro_publisher.publish(str(angle))
             rospy.loginfo(f"Angle received and published: {angle}")
