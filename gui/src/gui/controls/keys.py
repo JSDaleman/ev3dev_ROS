@@ -102,7 +102,7 @@ class DifferentialControlKeys(ControlKeys):
         try:
             value_right = int(self.right_speed_entry.text())
             value_left = int(self.left_speed_entry.text())
-            speed = min(max(min(value_right, value_left), 0), 600) #rpm
+            speed = min(max(min(value_right, value_left), 0), 175) #rpm
             self.left_speed_entry.setText(str(speed))
             self.right_speed_entry.setText(str(speed))
 
