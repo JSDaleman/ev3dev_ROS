@@ -384,9 +384,21 @@ Se tiene el archivo de configuración del mundo del robot como condiciones de il
 
 #### 📡🎮🤖 Teleoperación del robot
 
+<a href="https://www.youtube.com/watch?v=hCdG2yltG18">
+  <img src="https://img.youtube.com/vi/hCdG2yltG18/0.jpg" alt="" width="600px">
+</a>
+
 #### 🎮📊🤖 Teleoperación y simulación
 
+<a href="https://www.youtube.com/watch?v=J4IgCLKRch4">
+  <img src="https://img.youtube.com/vi/J4IgCLKRch4/0.jpg" alt="" width="600px">
+</a>
+
 #### 🧩🏙️🖥️ Aplicación y plugin de rqt
+
+<a href="https://www.youtube.com/watch?v=NIEbXVXS-eo">
+  <img src="https://img.youtube.com/vi/NIEbXVXS-eo/0.jpg" alt="" width="600px">
+</a>
 
 
 ### 🚨🐞💥 Fallas conocidas
